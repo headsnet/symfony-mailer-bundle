@@ -92,8 +92,7 @@ abstract class AbstractMail implements MailInterface
      */
     protected function createSwiftMessage()
     {
-        return Swift_Message::newInstance()
-            ->setSubject($this->subject)
+        return (new \Swift_Message($this->subject))
             ->setFrom($this->sender->getEmail(), $this->sender->getFullName());
     }
 
