@@ -156,7 +156,7 @@ class AdvancedMail extends AbstractMail
         }
 
         foreach($this->attachments as $attachment) {
-            $message->attach(\Swift_Attachment::newInstance($attachment->getData(), $attachment->getFilename(), $attachment->getContentType()));
+            $message->attach(\Swift_Attachment::fromPath($attachment->getData(), $attachment->getContentType()));
         }
 
         $message->setContentType($templates[0]['contentType']);
